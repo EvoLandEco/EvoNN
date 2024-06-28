@@ -22,6 +22,15 @@
     <loc>https://evolandeco.github.io/EvoNN/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://evolandeco.github.io/EvoNN/reference/nn_bootstrap_uncertainty.html</loc>
+  </url>
+  <url>
+    <loc>https://evolandeco.github.io/EvoNN/reference/nn_estimate.html</loc>
+  </url>
+  <url>
+    <loc>https://evolandeco.github.io/EvoNN/reference/nn_plot_bootstrap.html</loc>
+  </url>
+  <url>
     <loc>https://evolandeco.github.io/EvoNN/reference/sample2.html</loc>
   </url>
 </urlset>
