@@ -50,11 +50,17 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p><!-- badges: start --> <a href="https://github.com/EvoLandEco/EvoNN/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/EvoLandEco/EvoNN/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
+  <main id="main" class="col-md-9"><div class="section level2">
+<h2 id="evonn-neural-network-parameter-estimation-for-phylogenetic-trees">EvoNN: Neural Network Parameter Estimation for Phylogenetic Trees<a class="anchor" aria-label="anchor" href="#evonn-neural-network-parameter-estimation-for-phylogenetic-trees"></a>
+</h2>
+<!-- badges: start -->
+
+</div>
 <div class="section level1">
 <div class="page-header"><h1 id="how-to-install">How to install<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
 </h1></div>
 <p>This package illustrates how to integrate <code>R</code> with pre-trained neural network models for phylogenetic tree parameter estimation. Only <code>R</code> interface is provided in the package, although utilized both <code>R</code> and <code>Python</code>.</p>
+<hr>
 <p><strong>Step 1: Install R and Python</strong></p>
 <p>The latest versions of <code>R</code> and <code>Python</code> should be installed correctly. It is recommended to not alter the default settings of the installers.</p>
 <p><a href="https://cran.r-project.org/" class="external-link">Click to open R official website</a></p>
@@ -65,6 +71,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"EvoLandEco/treestats"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"EvoLandEco/EvoNN"</span><span class="op">)</span></span></code></pre></div>
+<hr>
 </div>
 <div class="section level1">
 <h1 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
@@ -92,6 +99,7 @@
 <div class="float">
 <img src="https://github.com/EvoLandEco/EvoNN/assets/57348932/a98d521a-63a4-47d0-84c6-ccaaed74d6ea" alt="image"><div class="figcaption">image</div>
 </div>
+<hr>
 </div>
 <div class="section level1">
 <h1 id="known-issue">Known issue<a class="anchor" aria-label="anchor" href="#known-issue"></a>
@@ -100,6 +108,7 @@
 <li><p>Error messages relating to <code>numpy</code> version or installation could appear if you run the <code>parameter_estimation</code> function for the first time. The issue might be newly installed Python libraries not being loaded. There is a simple solution: fully close your IDE (e.g. R Studio, VS Code or DataSpell, the software you use for R coding), then open it again. Re-run the example code, it should work this time.</p></li>
 <li><p>Mac users might have to install <code>cmake</code> to build some dependencies from source code. Run <code>install brew install --cask cmake</code> in your terminal to install it.</p></li>
 </ul>
+<hr>
 </div>
 <div class="section level1">
 <h1 id="important-note">Important note<a class="anchor" aria-label="anchor" href="#important-note"></a>
@@ -133,7 +142,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/EvoLandEco/EvoNN/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/EvoLandEco/EvoNN/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
