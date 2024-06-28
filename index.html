@@ -55,7 +55,6 @@
 </h1></div>
 <!-- badges: start -->
 
-<hr>
 <div class="section level2">
 <h2 id="how-to-install">How to install<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
 </h2>
@@ -76,13 +75,15 @@
 <h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
 </h2>
 <p><strong>Step 1: Prepare the phylogeny</strong></p>
-<p><a href="https://github.com/user-attachments/files/16026922/Columbiformes.zip" class="external-link">Click Here</a> to download an example phylogeny by <a href="https://data.mendeley.com/datasets/p6hm5w8s3b/2" class="external-link">Valente, Luis (2019), Phylogenetic trees used for global analysis of island birds</a>, unzip to your favorite path.</p>
+<p><a href="https://github.com/user-attachments/files/16026922/Columbiformes.zip" class="external-link">Click Here</a> to download an example phylogeny by <a href="https://data.mendeley.com/datasets/p6hm5w8s3b/2" class="external-link">Valente et al 2020 Nature</a>, unzip to your favorite path.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://evolandeco.github.io/EvoNN/">EvoNN</a></span><span class="op">)</span></span>
 <span><span class="co"># Set the path to the tree file</span></span>
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"your_path/Columbiformes.tre"</span></span>
-<span><span class="co"># Read in tree file</span></span>
-<span><span class="va">test_tre</span> <span class="op">&lt;-</span> <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/read.tree.html" class="external-link">read.tree</a></span><span class="op">(</span><span class="op">(</span><span class="va">path</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Read in tree file if it is in Newick format, e.g. the example phylogeny</span></span>
+<span><span class="va">test_tre</span> <span class="op">&lt;-</span> <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/read.tree.html" class="external-link">read.tree</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
+<span><span class="co"># Otherwise, use the following to read in Nexus format</span></span>
+<span><span class="va">test_tre</span> <span class="op">&lt;-</span> <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/read.nexus.html" class="external-link">read.nexus</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Step 2: Estimate parameters</strong></p>
 <p>This step may take a while to prepare a virtual environment the first time the function is run.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
