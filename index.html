@@ -50,17 +50,16 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level2">
-<h2 id="evonn-neural-network-parameter-estimation-for-phylogenetic-trees">EvoNN: Neural Network Parameter Estimation for Phylogenetic Trees<a class="anchor" aria-label="anchor" href="#evonn-neural-network-parameter-estimation-for-phylogenetic-trees"></a>
-</h2>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="evonn-neural-network-parameter-estimation-for-phylogenetic-trees">EvoNN: Neural Network Parameter Estimation for Phylogenetic Trees<a class="anchor" aria-label="anchor" href="#evonn-neural-network-parameter-estimation-for-phylogenetic-trees"></a>
+</h1></div>
 <!-- badges: start -->
 
-</div>
-<div class="section level1">
-<div class="page-header"><h1 id="how-to-install">How to install<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
-</h1></div>
-<p>This package illustrates how to integrate <code>R</code> with pre-trained neural network models for phylogenetic tree parameter estimation. Only <code>R</code> interface is provided in the package, although utilized both <code>R</code> and <code>Python</code>.</p>
 <hr>
+<div class="section level2">
+<h2 id="how-to-install">How to install<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
+</h2>
+<p>This package illustrates how to integrate <code>R</code> with pre-trained neural network models for phylogenetic tree parameter estimation. Only <code>R</code> interface is provided in the package, although utilized both <code>R</code> and <code>Python</code>.</p>
 <p><strong>Step 1: Install R and Python</strong></p>
 <p>The latest versions of <code>R</code> and <code>Python</code> should be installed correctly. It is recommended to not alter the default settings of the installers.</p>
 <p><a href="https://cran.r-project.org/" class="external-link">Click to open R official website</a></p>
@@ -73,9 +72,9 @@
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"EvoLandEco/EvoNN"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div class="section level1">
-<h1 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
-</h1>
+<div class="section level2">
+<h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
+</h2>
 <p><strong>Step 1: Prepare the phylogeny</strong></p>
 <p><a href="https://github.com/user-attachments/files/16026922/Columbiformes.zip" class="external-link">Click Here</a> to download an example phylogeny by <a href="https://data.mendeley.com/datasets/p6hm5w8s3b/2" class="external-link">Valente, Luis (2019), Phylogenetic trees used for global analysis of island birds</a>, unzip to your favorite path.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -97,28 +96,28 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/nn_plot_bootstrap.html">nn_plot_bootstrap</a></span><span class="op">(</span><span class="va">bootstrap</span>, <span class="va">result</span>, scenario <span class="op">=</span> <span class="st">"DDD"</span><span class="op">)</span></span></code></pre></div>
 <div class="float">
-<img src="https://github.com/EvoLandEco/EvoNN/assets/57348932/a98d521a-63a4-47d0-84c6-ccaaed74d6ea" alt="image"><div class="figcaption">image</div>
+<img src="https://github.com/EvoLandEco/EvoNN/assets/57348932/a98d521a-63a4-47d0-84c6-ccaaed74d6ea" alt="Plot for Bootstrap Results"><div class="figcaption">Plot for Bootstrap Results</div>
 </div>
 <hr>
 </div>
-<div class="section level1">
-<h1 id="known-issue">Known issue<a class="anchor" aria-label="anchor" href="#known-issue"></a>
-</h1>
+<div class="section level2">
+<h2 id="known-issue">Known issue<a class="anchor" aria-label="anchor" href="#known-issue"></a>
+</h2>
 <ul>
 <li><p>Error messages relating to <code>numpy</code> version or installation could appear if you run the <code>parameter_estimation</code> function for the first time. The issue might be newly installed Python libraries not being loaded. There is a simple solution: fully close your IDE (e.g. R Studio, VS Code or DataSpell, the software you use for R coding), then open it again. Re-run the example code, it should work this time.</p></li>
 <li><p>Mac users might have to install <code>cmake</code> to build some dependencies from source code. Run <code>install brew install --cask cmake</code> in your terminal to install it.</p></li>
 </ul>
 <hr>
 </div>
-<div class="section level1">
-<h1 id="important-note">Important note<a class="anchor" aria-label="anchor" href="#important-note"></a>
-</h1>
+<div class="section level2">
+<h2 id="important-note">Important note<a class="anchor" aria-label="anchor" href="#important-note"></a>
+</h2>
 <p>The <code>parameter_estimation()</code> function will automatically set up a Python virtual environment named “EvoNN” in your home directory in its first run, this may take a while.</p>
 <p>You can manually remove this virtual environment by running the following code in R:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/virtualenv-tools.html" class="external-link">virtualenv_remove</a></span><span class="op">(</span><span class="st">"EvoNN"</span><span class="op">)</span></span></code></pre></div>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
