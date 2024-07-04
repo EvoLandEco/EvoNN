@@ -59,15 +59,15 @@
 </h2>
 <p>This package illustrates how to integrate <code>R</code> with pre-trained neural network models for phylogenetic tree parameter estimation. Only <code>R</code> interface is provided in the package, although utilized both <code>R</code> and <code>Python</code>.</p>
 <p><strong>Step 1: Install R and Python</strong></p>
-<p>The latest versions of <code>R</code> and <code>Python</code> should be installed correctly. It is recommended to not alter the default settings of the installers.</p>
+<p><code>R</code> (&gt;=4.2.1) and <code>Python</code> (&gt;=3.10) should be installed correctly. It is recommended to not alter the default settings of the installers.</p>
 <p><a href="https://cran.r-project.org/" class="external-link">Click to open R official website</a></p>
 <p><a href="https://www.python.org/downloads/" class="external-link">Click to open Python official website</a></p>
-<p>The latest versions of <code>Rtools</code> and <code>pip</code> are also required. <code>Rtools</code> can be installed manually from the above website, <code>pip</code> is usually bundled with Python installation.</p>
 <p><strong>Step 2: Install R packages</strong></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"EvoLandEco/treestats"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"EvoLandEco/EvoNN"</span><span class="op">)</span></span></code></pre></div>
+<p>A virtual environment “EvoNN” with necessary dependencies will also be installed in your home directory. This may take a while. <em>Wait for the completion message.</em></p>
 <hr>
 </div>
 <div class="section level2">
@@ -84,14 +84,14 @@
 <span><span class="co"># Otherwise, use the following to read in Nexus format</span></span>
 <span><span class="co"># test_tre &lt;- ape::read.nexus(path)</span></span></code></pre></div>
 <p><strong>Step 2: Estimate parameters</strong></p>
-<p>This step may take a while to prepare a virtual environment the <em>first time</em> the function is run. <em>Wait for the completion message.</em></p>
+<p>The function estimates phylogenetic parameters from a phylo object.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/nn_estimate.html">nn_estimate</a></span><span class="op">(</span><span class="va">test_tre</span>, scenario <span class="op">=</span> <span class="st">"DDD"</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Step 3: Bootstrap the uncertainty</strong></p>
-<p>The execution time depends on the estimated parameters, some parameter settings may take too long or fail consistently. It is recommended to set a timeout limit, bootstrap iterations exceed the limit will return NAs.</p>
+<p><strong>Step 3: Bootstrap uncertainty</strong></p>
+<p>Some parameter settings may take too long or fail consistently. It is recommended to set a timeout limit.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bootstrap</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/nn_bootstrap_uncertainty.html">nn_bootstrap_uncertainty</a></span><span class="op">(</span><span class="va">result</span>, n <span class="op">=</span> <span class="fl">100</span>, timeout <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Step 4: Plot the uncertainty</strong></p>
+<p><strong>Step 4: Plot uncertainty</strong></p>
 <p>The neural network estimates are indicated by the red dashed lines and the blue values. Their uncertainties are represented by the density curves of bootstrap results.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/nn_plot_bootstrap.html">nn_plot_bootstrap</a></span><span class="op">(</span><span class="va">bootstrap</span>, <span class="va">result</span>, scenario <span class="op">=</span> <span class="st">"DDD"</span><span class="op">)</span></span></code></pre></div>
@@ -104,7 +104,7 @@
 <h2 id="known-issue">Known issue<a class="anchor" aria-label="anchor" href="#known-issue"></a>
 </h2>
 <ul>
-<li><p>Error messages relating to <code>numpy</code> version or installation could appear if you run the <code>parameter_estimation</code> function for the first time. The issue might be newly installed Python libraries not being loaded. There is a simple solution: fully close your IDE (e.g. R Studio, VS Code or DataSpell, the software you use for R coding), then open it again. Re-run the example code, it should work this time.</p></li>
+<li><p>Error messages may appear when you use <code><a href="https://evolandeco.github.io/EvoNN/">library(EvoNN)</a></code> to load the package right after installation. Try to fully close your IDE (e.g. R Studio, VS Code or DataSpell, the software you use for R coding), then open it again. Re-run the example code, it should work this time.</p></li>
 <li><p>Mac users might have to install <code>cmake</code> to build some dependencies from source code. Run <code>install brew install --cask cmake</code> in your terminal to install it.</p></li>
 </ul>
 <hr>
@@ -112,10 +112,11 @@
 <div class="section level2">
 <h2 id="important-note">Important note<a class="anchor" aria-label="anchor" href="#important-note"></a>
 </h2>
-<p>The <code>parameter_estimation()</code> function will automatically set up a Python virtual environment named “EvoNN” in your home directory in its first run, this may take a while.</p>
+<p>The package will automatically set up a Python virtual environment named “EvoNN” in your home directory during installation, this may take a while. A sanity check for this virtual environment will be performed every time when <code><a href="https://evolandeco.github.io/EvoNN/">library(EvoNN)</a></code> is called. If this environment is altered, the package will try to reinstall mismatched dependencies.</p>
 <p>You can manually remove this virtual environment by running the following code in R:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/virtualenv-tools.html" class="external-link">virtualenv_remove</a></span><span class="op">(</span><span class="st">"EvoNN"</span><span class="op">)</span></span></code></pre></div>
+<p>After removal, the package may fail to fix the environment on load unless your fully close all R sessions and restart.</p>
 </div>
 </div>
 
