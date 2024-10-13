@@ -6,6 +6,7 @@
 <!-- badges: end -->
 
 # EvoNN: Neural Network Parameter Estimation for Phylogenetic Trees
+Tianjian Qin, Koen van Benthem, Luis Valente, Rampal Etienne. Performance and robustness of parameter estimation from phylogenetic trees using neural networks. BioRXiv. DOI: https://doi.org/10.1101/2024.08.02.606350
 
 ## How to install
 This package illustrates how to integrate `R` with pre-trained neural network models for phylogenetic tree parameter estimation. Only `R` interface is provided in the package, although utilized both `R` and `Python`.
